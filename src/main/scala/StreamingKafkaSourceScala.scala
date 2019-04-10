@@ -7,7 +7,6 @@ import org.apache.flink.streaming.api.environment.{CheckpointConfig, StreamExecu
 import org.apache.flink.streaming.connectors.kafka.FlinkKafkaConsumer011
 
 object StreamingKafkaSourceScala {
-
 //  设置常量zookeeper信息/kafkabroker信息/要消费的组信息
   var ZOOKEEPER_HOST="master:2181,slave1:2181,slave2:2181"
   var KAFKA_BROKER="master:9092,slave1:9092,slave2:9092"
@@ -31,13 +30,10 @@ object StreamingKafkaSourceScala {
 
 //    没有设置检查点请自行添加
 //    env.getStateBackend(new FsStateBackend("hdfs://master:9000/flink/checkpoints"))
-
-
 //    要消费的主题
     val topic="TB_Books"
 //    kafka的配置信息
     val kafkaProps=new Properties()
-
     kafkaProps.setProperty("zookeeper.connect", ZOOKEEPER_HOST)
     kafkaProps.setProperty("bootstrap.servers", KAFKA_BROKER)
     kafkaProps.setProperty("group.id", KAFKA_GROUP)
@@ -48,8 +44,6 @@ object StreamingKafkaSourceScala {
     val result=env.addSource(Consumer)
 //  打印结果
     result.print()
-//    result
-
 //    execute可以带参数  是Job的名字
     env.execute("StreamingFromKafkaScala")
   }
