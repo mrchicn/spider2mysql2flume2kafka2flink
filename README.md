@@ -1,9 +1,9 @@
 # spider2mysql2flume2kafka2flink
 爬虫抓取的淘宝Python书信息写到mysql在用Flume监控传入Kafka再用Flink消费kafka的数据
-开发工具：
+# 开发工具：
     PyCharm 2018.3.5 x64
     IntelliJ IDEA 2018.3.5 x64
-大数据环境：
+# 大数据环境：
     hadoop-2.7.4       搭建教程地址：http://www.mrchi.cn/2018/11/04/hadoop2-7-4-install-configration/
     zookeeper-3.4.5    搭建教程地址：http://www.mrchi.cn/2019/01/29/zookeeper-3-4-5/
     kafka_2.11-2.1.0   搭建教程地址：http://www.mrchi.cn/2019/01/30/kafka_2-11-2-1-0%E9%83%A8%E7%BD%B2/
@@ -12,12 +12,12 @@
     jdk1.8.0_201        开发语言环境就不用说了吧
     scala 2.11          开发语言环境就不用说了吧
     这里的数据没有写到Hadoop但是要写入Hadoop需要在Flume配置两个sink一个供kafka消费一个供Hadoop存储
-Python环境：
+# Python环境：
     python3.7
     selenium 测试框架
     pyquery  解析框架
     re  正则匹配
-MySQL表信息：
+# MySQL表信息：
      CREATE TABLE `TB_Books` (
     `book_Url` varchar(255) DEFAULT NULL,
     `book_Address` varchar(1000) DEFAULT NULL,
@@ -29,7 +29,7 @@ MySQL表信息：
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
     #这里没有创建主键和外键生产环境是有的
     #由于书的地址比较长所以设置长度为1000
-Flume配置信息：
+# Flume配置信息：
     配置信息比较长:
     ########定于三个必须组件################
     a1.channels = c1
@@ -89,7 +89,7 @@ Flume配置信息：
     #连接到channel
     a1.sinks.k1.channel = c1
     a1.sources.s1.channel=c1
-Kafka配置信息：
+# Kafka配置信息：
     这里推荐一个软件比较好用可以查看topic内的数据信息在软件里可以直接创建主题和删除主题可视化操作
     《Kafka Tool 2.0》
     kafka的操作就简单的多了直接创建一个主题就可以拉。就是前期准备的工作比较多。
