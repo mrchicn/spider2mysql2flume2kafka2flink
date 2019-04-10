@@ -94,17 +94,17 @@
     《Kafka Tool 2.0》
     kafka的操作就简单的多了直接创建一个主题就可以拉。就是前期准备的工作比较多。
     首先启动zk  分别在三台虚机上启动
-    启动zookeeper命令:
-            zkServer.sh start
-            然后在jps看一下看到有QuorumPeerMain这个名字就是啦
+## 启动zookeeper命令:
+    zkServer.sh start
+    然后在jps看一下看到有QuorumPeerMain这个名字就是啦
     三台机器都启动以后启动kafka，同样是三台机器都启动或者启动一个也可以
     启动kafka命令:
-              cd /opt/software/kafka_2.11-2.1.0 在安装目录下启动
-              kafka-server-start.sh config/server.properties >>/d
+    cd /opt/software/kafka_2.11-2.1.0 在安装目录下启动
+    kafka-server-start.sh config/server.properties >>/d
     然后是创建主题这里的主题是需要和Flume传如的主题相对应的上面的Flume下沉到Kafka的TB_Books主题所以需要创建TB_Books主题
     创建主题命令:
-            kafka-topics.sh -create -zookeeper master:2181,slave1:2181,slave2:2181 -replication-factor 3 -partitions 1 -topic TB_Books
-一切准备就绪将代码呈上来:Scala写的Flink消费kafka的代码 StreamingKafkaSourceScala
+    kafka-topics.sh -create -zookeeper master:2181,slave1:2181,slave2:2181 -replication-factor 3 -partitions 1 -topic TB_Books
+# 一切准备就绪将代码呈上来:Scala写的Flink消费kafka的代码 StreamingKafkaSourceScala
      代码里也需要配置kafka的代理,主题,和消费组
      在Java文件夹下面的是测试写入数据库用的
 
