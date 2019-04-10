@@ -1,5 +1,7 @@
 # spider2mysql2flume2kafka2flink
-爬虫抓取的淘宝Python书信息写到mysql在用Flume监控传入Kafka再用Flink消费kafka的数据
+爬虫抓取淘宝Python书信息将相关信息写到mysql
+在用Flume监控mysql写入的数据
+然后传入Kafka再用Flink消费kafka主题中的数据
 # 开发工具：
     PyCharm 2018.3.5 x64
     IntelliJ IDEA 2018.3.5 x64
