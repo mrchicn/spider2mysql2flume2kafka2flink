@@ -100,7 +100,7 @@
     zkServer.sh start
     然后在jps看一下看到有QuorumPeerMain这个名字就是啦
     三台机器都启动以后启动kafka，同样是三台机器都启动或者启动一个也可以
-    启动kafka命令:
+##### 启动kafka命令:
     cd /opt/software/kafka_2.11-2.1.0 在安装目录下启动
     kafka-server-start.sh config/server.properties >>/d
     然后是创建主题这里的主题是需要和Flume传如的主题相对应的上面的Flume下沉到Kafka的TB_Books主题所以需要创建TB_Books主题
